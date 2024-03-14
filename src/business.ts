@@ -42,6 +42,10 @@ export async function makeReservation(input: any) {
   return reservation;
 }
 
+export async function getReservation(reservationId: string) {
+  await getReservation(reservationId);
+}
+
 export async function cancelReservation(reservationId: string) {
   await updateReservationStatus(reservationId, "cancelled");
 }
