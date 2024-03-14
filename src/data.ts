@@ -51,3 +51,11 @@ export async function updateReservationStatus(
     [status, reservationId]
   );
 }
+
+export async function getReservation(reservationId: string) {
+  const connection = pgp()("postgres:postgres:123456@localhost:5432/app");
+  await connection.query(
+    "select * from branas.reservation where reservation_id = $1",
+    [reservationId]
+  );
+}
